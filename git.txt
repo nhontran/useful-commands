@@ -1,0 +1,5 @@
+// recover stash has been deleted
+git fsck | awk '{print $3}' > tmp.txt
+cat tmp.txt | xargs git show > tmp2.txt
+git stash apply <commit id>
+rm tmp.txt tmp2.txt
