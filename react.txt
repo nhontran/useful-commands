@@ -1,0 +1,10 @@
+npm install -g <package>
+
+npm install --save-dev <package>
+#The --save-dev flag indicates that the node package is only used in the development environment.
+#It will not be used in production when you deploy your application on a server.
+
+npm install -g create-react
+
+create-react-app --version
+create-react-app <projectname>

@@ -1,0 +1,7 @@
+appcmd set apppool "DigitalPlatform" -startMode:AlwaysRunning
+appcmd set config /section:applicationPools /[name='DigitalPlatform"'].processModel.idleTimeout:0.00:00:00
+appcmd set apppool /apppool.name: "DigitalPlatform" /+recycling.periodicRestart.schedule.[value='00:00:00']
+
+appcmd set apppool "DigitalPlatform" -startMode:OnDemand
+appcmd set config /section:applicationPools /[name='DigitalPlatform"'].processModel.idleTimeout:0.00:20:00
+appcmd set apppool /apppool.name: "DigitalPlatform" /-recycling.periodicRestart.schedule

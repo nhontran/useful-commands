@@ -1,0 +1,33 @@
+#List all keys 
+
+Keys *
+
+#You can use the following command to know the number of databases:
+
+CONFIG GET databases
+1) "databases"
+2) "16"
+
+#You can use the following command to list the databases for which some keys are defined:
+
+INFO keyspace
+# Keyspace
+db0:keys=10,expires=0
+db1:keys=1,expires=0
+db3:keys=1,expires=0
+
+#Select the database 1
+select 1
+
+#Delete the key
+Del "<keyname>"
+
+#start the redis server with specific port
+redis-server --port 6380
+
+#get key value
+if value is of type string -> GET <key>
+if value is of type hash -> HGETALL <key>
+if value is of type lists -> lrange <key> <start> <end>
+if value is of type sets -> smembers <key>
+if value is of type sorted sets -> ZRANGEBYSCORE <key> <min> <max>

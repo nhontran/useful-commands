@@ -1,0 +1,9 @@
+#download all dependencies
+apt-get download $(apt-rdepends redis-server | grep -v "^ " | sed 's/debconf-2.0/debconf/g')
+
+#install all dependencies pkgs
+sudo dpkg -i *
+
+# run sudo without asking password
+sudo visudo
+%sudo ALL=NOPASSWD: /usr/local/bin/redis-server

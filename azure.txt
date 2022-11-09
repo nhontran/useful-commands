@@ -1,0 +1,11 @@
+Add-AzureAccount
+Get-AzureAccount
+Connect-AzureRmAccount
+
+Get-AzurePublishSettingsFile
+Import-AzurePublishSettingsFile "C:\Users\username\Downloads\Azure MSDN - Visual Studio Ultimate-12-14-2013-credentials.publishsettings"
+$myCert = Get-Item cert:\\CurrentUser\My\2c0e134760c17215b1fe2395ea24b80e470c1c1b
+Set-AzureSubscription –SubscriptionName "dev@nhontl.onmicrosoft.com" –SubscriptionId "71e2bf37-c75d-4f38-98e9-ddf62242c166" -Certificate $myCert
+    
+--Web Site Service
+New-AzureRmWebApp
