@@ -10,8 +10,12 @@ openssl pkcs12 -export -out domain.name.pfx -inkey domain.name.key -in domain.na
 //convert pfx to crt
 openssl pkcs12 -in [yourfile.pfx] -clcerts -nokeys -out [certificate.crt]
 
-// convert pfx to key
+// convert pfx to encrypted private key
 openssl pkcs12 -in [yourfile.pfx] -nocerts -out [keyfile-encrypted.key]
+
+// convert pfx to encrypted private key to private key
+openssl ec -passin file:passphrase-file.txt -in [keyfile-encrypted.key] -out [keyfile.key]
+openssl rsa -in [keyfile-encrypted.key] -outform PEM -out [keyfile.key]
 
 // generate ECDSA cert
 openssl req -x509 -nodes -newkey ec -pkeyopt ec_paramgen_curve:P-256 -keyout is4.key -out is4.crt -days 3650
